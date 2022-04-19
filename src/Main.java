@@ -55,7 +55,8 @@ public class Main {
         animal.stream()
                 .map(x -> { // сравниваем месяц и если true добавляем 1 год
                     if (x.getMes().equals("Апрель")) {
-                        x.setAge(x.getAge() + 1);
+                        System.out.println(x.getName()); //выводим животных которые родились в Апреле
+                        x.setAge(x.getAge() + 1); // +1 год для тех кто родился в Апреле
                     }
                     return x; // не знаю как это работает (Java сама предложила)
                 })
@@ -68,7 +69,29 @@ public class Main {
          * игрушки, произведенные до 2010 года. - любым способом, можно без stream.
          */
 
+        Map<String, Toys> mapToys = new HashMap<>();
+        mapToys.put("Mersedes", (new Toys(2020, "Car")));
+        mapToys.put("Barbie", (new Toys(2009, "doll")));
+        mapToys.put("Audi", (new Toys(2008, "Car")));
+        mapToys.put("Can", (new Toys(2011, "doll")));
+        mapToys.put("BMW", (new Toys(2007, "Car")));
 
+        System.out.println("Проверка" + mapToys); // проверка
+
+        List<String> key = new ArrayList<>(); // для хранения Key из MAP
+
+        for (Map.Entry<String, Toys> entry : mapToys.entrySet()) {
+            if (entry.getValue().getYear() < 2010){
+                key.add(entry.getKey());
+            }
+        }
+        for (String k: key) {
+            mapToys.remove(k);
+        }
+
+        System.out.println("Map после удаления игрушек произведенных до 2010 года : " + mapToys);
+
+        System.out.println("*********Task 4**********");
         /** 4 (выполнять не обязательно) Добавить студентов в коллекцию. Создать класс Student,
          * содержащий следующие характеристики – имя, группа, курс, оценки по предметам.
          * Создать коллекцию, содержащую объекты класса Student.
@@ -76,6 +99,34 @@ public class Main {
          * А также печатает на консоль имена тех студентов из списка, которые обучаются на данном курсе.
          */
 
+        Set<Student> students = new HashSet<>();
+        Set<String> studentsThree = new HashSet<>(); // список студентов с AVG >3
+
+        Student s1 = new Student("Bob", "206", 2, 2.5);
+        Student s2 = new Student("John", "311", 4, 4.5);
+        Student s3 = new Student("Lola", "346", 3, 3.1);
+        Student s4 = new Student("Boris", "306", 1, 5);
+        Student s5 = new Student("Arnold", "206", 2, 1.9);
+        Student s6 = new Student("Richard", "356", 4, 3);
+        Student s7 = new Student("Kate", "418", 3, 3.4);
+        Student s8 = new Student("Garry", "306", 1, 2.8);
+
+        students.add(s1);
+        students.add(s2);
+        students.add(s3);
+        students.add(s4);
+        students.add(s5);
+        students.add(s6);
+        students.add(s7);
+        students.add(s8);
+
+        for (Student stud: students) {
+            if (stud.getAvg() >= 3){
+                studentsThree.add(stud.getName());
+            }
+        }
+        System.out.println(students);
+        System.out.println(studentsThree);
 
     }
 
