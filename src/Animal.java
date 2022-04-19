@@ -1,4 +1,3 @@
-import java.util.Comparator;
 import java.util.Objects;
 
 public class Animal implements Comparable {

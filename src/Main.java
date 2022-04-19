@@ -85,7 +85,7 @@ public class Main {
                 key.add(entry.getKey());
             }
         }
-        for (String k: key) {
+        for (String k: key) { //удаляем из MAP если < 2010
             mapToys.remove(k);
         }
 
@@ -120,6 +120,7 @@ public class Main {
         students.add(s7);
         students.add(s8);
 
+        //заполняем коллекцию студентами с AVG >= 3
         for (Student stud: students) {
             if (stud.getAvg() >= 3){
                 studentsThree.add(stud.getName());
@@ -130,6 +131,8 @@ public class Main {
 
     }
 
+    //заполняем TreeSet с помощью метода setADD и
+    // сортируем по имени используя compareTo(Object o)
     private static void setAdd(Set<Animal> animal) {
         Animal a1 = new Animal("Кот", 3, "Апрель");
         Animal a2 = new Animal("Собака", 6, "Май");
@@ -145,6 +148,7 @@ public class Main {
 
     }
 
+    // метод заполняет коллекцию задача 0
     private static void addList(List list, int compacity) {
         for (int i = 0; i < compacity; i++) {
             list.add((int) (Math.random() * 101));
